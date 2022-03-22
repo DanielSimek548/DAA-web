@@ -1,61 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<link http-equip="Content-Type" cotent="register.html; charset-UTF-8">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-        <?php
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $database = 'users';
+    <head>
+        <link http-equip="Content-Type" cotent="register.html; charset-UTF-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand">MY PAGE</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="action_page.php">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="register.php">Sign up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="login.php">Sign in</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+            </nav>
+        </header>
         
-        $conn = new mysqli($servername, $username, $password, $database);
-        
-        if ($conn->connect_error){
-            die("Connection faild: " . $conn->connect_error);
-        }
-        //echo "Connected successfully";
-        
-        $hasPasswordCertainLength = true;
-        $hasPasswordAtLeastOneNumber = true;
-        $passwordAreSame = true;
-        
-        $uname = $_POST["uname"];
-        $psw = $_POST["psw"];
-        $psw_repaet = $_POST["psw-repaet"];
-        
-        $sql = "INSERT INTO `people` (username, password) VALUES ('$uname', '$psw');";
-        
-        if(strlen($psw) >= 5){
-            if(preg_match('@[0-9]@', $psw)){
-                if ($psw == $psw_repaet){
-                    //password_hash($psw, PASSWORD_BCRYPT);
-                    header('Location: login.php');
-                    if ($conn->query($sql) === TRUE){
-                        echo "New record created seccessfully";
-                    } 
-                    else{
-                        echo "Error: " . $sgl . "<br>" . $conn->error;
-                    }
-                }
-                else{
-                    echo "Passwords didn't match.";
-                }
-            }
-            else{
-                echo "In your password must by number.";
-            }
-        }
-        else{
-            echo "Password is too short. Password must by at least 5 characters long.";
-        }
-        
-        $conn->close();
-        ?>
-</body>
+        <footer>
+            
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
 </html>
