@@ -50,12 +50,12 @@ include('./script/profile_script.php');
         <h1><?php echo $user["username"] ?></h1>
         <p class="title"><?php echo $user["date"] ?></p>
     </div>
-    
+
     <div class="card">
-        <a href="#"><i class="fa fa-image"></i> Change avatar</a>
+        <a href="avatar_change.php"><i class="fa fa-image"></i> Change avatar</a>
         <a href="#"><i class="fa fa-user"></i> Change username</a>
         <a href="#"><i class="fa fa-lock"></i> Change password</a>
-        <a href="./script/delete_script.php?id=<?php echo $user["id"];?>"><i class='fa fa-remove'> Delete user</i></a>
+        <a href="./script/delete_script.php?id=<?php echo $user["id"]; ?>"><i class='fa fa-remove'> Delete user</i></a>
     </div>    
 
 <?php endforeach ?>
